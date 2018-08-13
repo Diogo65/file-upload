@@ -1,0 +1,28 @@
+﻿@model Upload.Models.Foto
+@{
+    ViewBag.Title = "Foto";
+}
+
+<h2>Foto</h2>
+
+@using (Html.BeginForm("CadastrarFoto", "Fotos", FormMethod.Post, new { enctype = "multipart/form-data", id = "formDoc" }))
+{
+    @*@Html.Hidden("Id", Model.Id)*@
+    <div class="form-group">
+        <div class="inline-arquivo">
+            <label>Arquivo: </label>
+            <input type="file" name="file" id="file" class="form-control-file teste" style="display: inline" ; accept=".jpg" />
+        </div>
+    </div>
+    <button type="submit" class="btn-enviar" id="enviar" value="enviar">
+        <div class="btn-align" id="btn-align-enviar">
+            <i class="fa fa-save"></i>Salvar
+        </div>
+    </button>
+}
+
+
+<a href="@Url.Action("ListaFotos", "Fotos") ">
+    <span class="fa fa-clock-o nb-link-icon"></span>
+    <span class="nb-link-text">Fotos</span>
+</a>
